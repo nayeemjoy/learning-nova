@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\ChangeProductStatusToNo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\File;
@@ -104,6 +105,8 @@ class Product extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new ChangeProductStatusToNo()
+        ];
     }
 }
