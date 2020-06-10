@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
                 ->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('photo')->nullable();
+            $table->string('status')->default('YES');
 
             $table->timestamps();
         });

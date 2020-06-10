@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -54,7 +55,11 @@ class Product extends Resource
                 ->sortable()
                 ->rules('required'),
             Image::make('Photo')->disk('public'),
-            BelongsTo::make('Category')
+            BelongsTo::make('Category'),
+            Select::make('Status')->options([
+                'YES' => 'YES',
+                'NO' => 'NO'
+            ])
         ];
     }
 
